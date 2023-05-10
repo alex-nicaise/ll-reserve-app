@@ -9,7 +9,7 @@ const Header = () => {
             <meta name="title" content="Little Lemon Restaurant"/>
             <meta name="author" content="Alex N"/>
             <meta name="language" content="english"/>
-            <meta charset="UTF-8"/>
+            <meta charSet="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <meta name="HandheldFriendly" content="true"/>
             <meta name="format-detection" content="telephone=yes"/>

@@ -1,7 +1,8 @@
 import { Button } from "@adobe/react-spectrum";
 import React from "react";
-import specials from "../specials";
+import specials from "../APIs/specials";
 import SpecialsCard from "./SpecialsCard";
+import Reviews from "./Reviews";
 
 const Main = () => {
 
@@ -32,7 +33,7 @@ const Main = () => {
               {
                 specials.map(dish =>
                     <SpecialsCard
-                    id={dish.id}
+                    key={dish.id}
                     header={dish.name}
                     originalPrice={dish.oPrice}
                     price={dish.price}
@@ -47,7 +48,19 @@ const Main = () => {
         <article>
             <h2>What Customers are Saying</h2>
             <section>
-                
+                <Reviews/>
+            </section>
+        </article>
+
+        {/* ABOUT */}
+        <article>
+            <section>
+              <h2>About Us</h2>
+              <p>Meet Nico and Helen Costas, the passionate Greek immigrants who have brought a taste of the Mediterranean to the heart of Chicago with their beloved restaurant, Little Lemon. Born and raised in Greece, these two culinary enthusiasts have dedicated their lives to showcasing the vibrant flavors and rich traditions of their homeland.</p>
+            </section>
+            <section>
+              <img src="" alt="Nico Costas, Owner of Little Lemon Restaurant"/>
+              <img src="" alt="Helen Costas, Owner of Little Lemon Restaurant"/>
             </section>
         </article>
 
