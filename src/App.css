@@ -1,38 +1,211 @@
-.App {
-  text-align: center;
+:root {
+  --primary-green: #495E57;
+  --darker-green: #3d4e48;
+  --primary-yellow: #F4CE14;
+  --darker-yellow: #e7c414;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*-------------------- HEADER ---------------------*/
+header {
+  padding: 0px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+header menu {
+  list-style: none;
+  display: flex;
+}
+header img {
+  min-height: 65px;
+  margin: 25px 0px;
+}
+header #widescreen-nav {
+  display: flex;
+  align-items: center;
+}
+header #widescreen-nav a {
+  text-decoration: none;
+  color: var(--primary-green);
+}
+header #widescreen-nav li:not(li:last-child) {
+  margin-right: 20px;
+}
+header #mobile-nav {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ghost-button-primary {
+  font-weight: bold;
+  border: 2px solid var(--primary-green);
+  border-radius: 1000px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.ghost-button-primary:hover {
+  background-color: var(--primary-green);
+  color: white !important;
+  transition: background-color 0.2s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-yellow {
+  font-weight: bold;
+  background-color: var(--primary-yellow);
+  color: black !important;
+  border: 2px solid var(--primary-yellow);
+  border-radius: 1000px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.button-yellow:hover {
+  background-color: var(--darker-yellow) !important;
+  border: 2px solid var(--darker-yellow) !important;
+  transition: background-color 0.2s;
+}
+
+/*-------------------- MAIN ---------------------*/
+main {
+  padding: 0px 50px;
+}
+
+/*HOME HEADER*/
+#home-header {
+  background-color: var(--primary-green);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+#home-header section:not(#home-hero) {
+  padding: 50px 35px 40px 35px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+#home-header section:not(#home-hero) div {
+  max-width: 550px;
+}
+#home-header section:not(#home-hero) div h1 {
+  font-size: 1.75em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#home-header section:not(#home-hero) div h3 {
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+#home-header #home-hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*SPECIALS*/
+.green-button {
+  font-weight: bold;
+  background-color: var(--primary-green);
+  color: white !important;
+  border: 2px solid var(--primary-green);
+  border-radius: 1000px;
+  padding: 5px 15px;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
+}
+.green-button:hover {
+  background-color: var(--darker-green) !important;
+  border: 2px solid var(--darker-green) !important;
+  transition: background-color 0.2s;
+}
+
+#specials-section section:first-child {
+  margin: 25px 0px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#specials-section section:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#specials-section .specials-card {
+  border-radius: 15px;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.25);
+}
+#specials-section .specials-card div:first-child {
+  min-height: 200px;
+  border-radius: 15px 15px 0px 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#specials-section .specials-card .special-text {
+  margin: 25px;
+}
+#specials-section .specials-card .special-price {
+  color: var(--primary-yellow);
+  font-weight: bold;
+}
+#specials-section .specials-card:not(.specials-card:last-child) {
+  margin-right: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/*-------------------- FOOTER ---------------------*/
+#social-icons img {
+  max-height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/*-------------------- MEDIA QUERIES ---------------------*/
+@media (max-width: 992px) {
+  #home-header {
+    grid-template-columns: 1fr 1fr;
   }
 }
+@media (max-width: 799px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  header img {
+    margin: 25px 0px 15px 0px;
+  }
+  header #mobile-nav {
+    display: block !important;
+    min-width: 100vw;
+    text-align: center;
+    background-color: #bababa;
+  }
+  header #mobile-nav menu {
+    padding: 15px 0px;
+    list-style: none;
+    flex-direction: column;
+  }
+  header #mobile-nav menu li:not(li:first-child) {
+    margin-top: 20px;
+  }
+  header #mobile-nav menu a {
+    text-decoration: none;
+    color: var(--primary-green);
+  }
+  header #widescreen-nav {
+    display: none !important;
+  }
+  main {
+    padding: 25px;
+  }
+}
+@media (max-width: 576px) {
+  #home-header {
+    background-color: var(--primary-green);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #home-header #home-hero {
+    min-height: 300px;
+  }
+  #home-header section:not(#home-hero) {
+    padding: 35px 35px 20px 35px;
+  }
+  #home-header section:not(#home-hero) div {
+    max-width: none;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

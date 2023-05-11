@@ -1,6 +1,12 @@
+import greekSalad from "../images/ll-greek-salad.jpg";
+import lemonChicken from "../images/ll-lemon-chicken.jpg";
+import bruschettaImg from "../images/ll-bruschetta.jpg";
+
 const specials = [
     {
         id: "s01",
+        image: lemonChicken,
+        alt: "Crispy fried chicken served in a lemon glaze.",
         name: "Lemon Chicken",
         price: "$10.99",
         oPrice: "$24.99",
@@ -8,6 +14,8 @@ const specials = [
     },
     {
         id: "s02",
+        image: greekSalad,
+        alt: "Greek salad made of cucumbers, feta, tomatoes, and olive oil.",
         name: "Greek Salad",
         price: "$12.98",
         oPrice: "$18.00",
@@ -15,6 +23,8 @@ const specials = [
     },
     {
         id: "s03",
+        image: bruschettaImg,
+        alt: "Toast covered in tomato, mozzarella, and basil.",
         name: "Bruschetta",
         price: "$5.99",
         oPrice: "$9.99",

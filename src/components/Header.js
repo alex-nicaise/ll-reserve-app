@@ -1,12 +1,15 @@
 import React from "react";
-import { Button } from "@adobe/react-spectrum";
+import Nav from "./Nav";
+import SmallNav from "./SmallNav";
+import Logo from "../images/little-lemon-logo.svg";
 
 const Header = () => {
     return(
         <header>
             {/* META TAGS */}
-            <meta name="description" content="Little Lemon Web App"/>
-            <meta name="title" content="Little Lemon Restaurant"/>
+            <meta name="og:description" content="A Mediterranean eatery in the heart of Chicago's South Side."/>
+            <meta name="og:title" content="Little Lemon Restaurant"/>
+            <meta name="og:image" content="https://example.com/one-place-fishing-store.jpg"/>
             <meta name="author" content="Alex N"/>
             <meta name="language" content="english"/>
             <meta charSet="UTF-8"/>
@@ -16,18 +19,10 @@ const Header = () => {
             <meta name="copyright" content="Copyright 2023"></meta>
             <meta name="robots" content="index,follow" />
 
-            {/* NAVIGATION BAR */}
-            <nav>
-                <img src="" alt="Little Lemon Logo"/>
-                <menu>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Reserve</a></li>
-                    <li><a href="#" role="button"><Button className="ghost-button">Order</Button></a></li>
-                    <li><a href="#">Log In</a></li>
-                </menu>
-            </nav>
+            <img src={Logo} alt="Little Lemon Logo"/>
+
+            <Nav />
+            <SmallNav />
         </header>
     )
 }
