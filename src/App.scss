@@ -43,6 +43,13 @@
     font-size: 1.25em;
 }
 
+@mixin backgroundImg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 
 
 /*-------------------- HEADER ---------------------*/
@@ -140,9 +147,7 @@ main {
     }
 
     #home-hero{
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @include backgroundImg();
     }
 }
 
@@ -181,9 +186,8 @@ main {
         div:first-child {
             min-height: 200px;
             border-radius: 15px 15px 0px 0px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            
+            @include backgroundImg();
         }
 
         .special-text{
@@ -252,6 +256,7 @@ main {
     align-items: center;
     text-align: center;
     padding: 25px;
+    border-left: 1px solid #eaeaea;
 
     p:last-child{
         max-width: 450px;
@@ -262,9 +267,51 @@ main {
 /*ABOUT*/
 
 #about-section{
-    margin: 50px 0px 50px 0px;
+    margin: 75px 0px 50px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    section{
+        &:not(#owner-imgs){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+            span{
+                margin: auto;
+                max-width: 450px;
+                padding-right: 25px;
+            }
+        }
+    }
+
+    #owner-imgs{
+        display: flex;
+        justify-content: center;
+
+        span{
+            display: flex;
+            margin-left: auto;
+            margin-right: -57px;
+        }
+
+        div{
+            @include backgroundImg();
+            position: relative;
+            width: 335px;
+            height: 400px;
+
+            &:first-child{
+                z-index: 2;
+            }
+
+            &:last-child{
+                z-index: 1;
+                bottom: 25px;
+                left: -82px;
+            }
+        }
+    }
 }
 
 
@@ -335,6 +382,11 @@ main {
     #review-bounding{
         display: flex !important;
         flex-direction: column-reverse !important;
+    }
+
+    #rev-panel{
+        border-left: none;
+        border-bottom: 1px solid #eaeaea;
     }
 }
 

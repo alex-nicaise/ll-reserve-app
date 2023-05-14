@@ -59,7 +59,8 @@ const Reviews = () => {
                 <Rating name="read-only"
                 value={rev.rating}
                 readOnly
-                precision={0.5} 
+                precision={0.5}
+                size="large"
                 />
                 <h3>{rev.title}</h3>
                 <p>{rev.description}</p>

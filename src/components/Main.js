@@ -3,6 +3,8 @@ import specials from "../APIs/specials";
 import SpecialsCard from "./SpecialsCard";
 import Reviews from "./Reviews";
 import foodImage from "../images/ll-hero-image.jpg";
+import Nico from "../images/ll-owner-niko-costas-fake.jpg";
+import Helen from "../images/costas-wife-ll-fake.jpg";
 
 const Main = () => {
 
@@ -55,13 +57,17 @@ const Main = () => {
 
         {/* ABOUT */}
         <article id="about-section">
-            <section>
-              <h2>About Us</h2>
-              <p>Meet Nico and Helen Costas, the passionate Greek immigrants who have brought a taste of the Mediterranean to the heart of Chicago with their beloved restaurant, Little Lemon. Born and raised in Greece, these two culinary enthusiasts have dedicated their lives to showcasing the vibrant flavors and rich traditions of their homeland.</p>
+            <section id="owner-imgs">
+                <span>
+                    <div style={{backgroundImage: `url(${Nico})`}} alt="Nico Costas, Owner of Little Lemon Restaurant"/>
+                    <div style={{backgroundImage: `url(${Helen})`}}  alt="Helen Costas, Owner of Little Lemon Restaurant"/>
+                </span>
             </section>
             <section>
-              <img src="" alt="Nico Costas, Owner of Little Lemon Restaurant"/>
-              <img src="" alt="Helen Costas, Owner of Little Lemon Restaurant"/>
+                <span>
+                    <h2>About Us</h2>
+                    <p>Meet Nico and Helen Costas, the passionate Greek immigrants who have brought a taste of the Mediterranean to the heart of Chicago with their beloved restaurant, Little Lemon. Born and raised in Greece, these two culinary enthusiasts have dedicated their lives to showcasing the vibrant flavors and rich traditions of their homeland.</p>
+                </span>
             </section>
         </article>
         </main>
