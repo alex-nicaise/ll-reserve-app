@@ -186,7 +186,7 @@ main {
         div:first-child {
             min-height: 200px;
             border-radius: 15px 15px 0px 0px;
-            
+
             @include backgroundImg();
         }
 
@@ -318,10 +318,50 @@ main {
 
 /*-------------------- FOOTER ---------------------*/
 
-#social-icons{
-    img {
-        max-height: 50px;
+#footer{
+    background-color: var(--primary-green);
+    color: white;
+    padding-top: 25px;
+
+    a{
+        color: white;
     }
+
+    menu{
+        list-style: none;
+        padding: 0px;
+    }
+
+    section{
+        text-align: center;
+        padding: 25px;
+
+        p{
+            margin: 0px;
+        }
+    }
+
+    span{
+       display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#social-icons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    img {
+        max-height: 35px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+}
+
+#footer-logo{
+    max-height: 75px;
 }
 
 

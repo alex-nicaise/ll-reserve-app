@@ -243,8 +243,44 @@ main {
 }
 
 /*-------------------- FOOTER ---------------------*/
+#footer {
+  background-color: var(--primary-green);
+  color: white;
+  padding-top: 25px;
+}
+#footer a {
+  color: white;
+}
+#footer menu {
+  list-style: none;
+  padding: 0px;
+}
+#footer section {
+  text-align: center;
+  padding: 25px;
+}
+#footer section p {
+  margin: 0px;
+}
+#footer span {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 #social-icons img {
-  max-height: 50px;
+  max-height: 35px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+#footer-logo {
+  max-height: 75px;
 }
 
 /*-------------------- MEDIA QUERIES ---------------------*/
