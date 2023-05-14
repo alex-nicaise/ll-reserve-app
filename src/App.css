@@ -45,6 +45,7 @@ header #mobile-nav {
   background-color: var(--primary-green);
   color: white !important;
   transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 .button-yellow {
@@ -60,6 +61,7 @@ header #mobile-nav {
   background-color: var(--darker-yellow) !important;
   border: 2px solid var(--darker-yellow) !important;
   transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 /*-------------------- MAIN ---------------------*/
@@ -113,6 +115,7 @@ main {
   background-color: var(--darker-green) !important;
   border: 2px solid var(--darker-green) !important;
   transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 #specials-section section:first-child {
@@ -127,7 +130,7 @@ main {
 }
 #specials-section .specials-card {
   border-radius: 15px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.25);
 }
 #specials-section .specials-card div:first-child {
   min-height: 200px;
@@ -145,6 +148,62 @@ main {
 }
 #specials-section .specials-card:not(.specials-card:last-child) {
   margin-right: 15px;
+}
+
+/*REVIEWS*/
+#review-section {
+  background-color: var(--primary-green);
+  margin-top: 50px;
+  padding: 25px 50px 50px 50px;
+}
+#review-section h2 {
+  font-size: 1.25em;
+  color: white;
+  margin-bottom: 35px;
+}
+
+#review-bounding {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#review-bounding .customer-review {
+  display: flex;
+  padding: 25px;
+  border-bottom: 1px solid #eaeaea;
+}
+#review-bounding .customer-review .customer-avatar {
+  margin-right: 15px;
+  max-height: 75px;
+  border-radius: 1000px;
+}
+#review-bounding .customer-review:hover {
+  cursor: pointer;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s;
+  border-bottom: 1px solid transparent !important;
+}
+#review-bounding .customer-review:last-child {
+  border-bottom: none !important;
+}
+
+#rev-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+#rev-panel p:last-child {
+  max-width: 450px;
+}
+
+/*ABOUT*/
+#about-section {
+  margin: 50px 0px 50px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 /*-------------------- FOOTER ---------------------*/
@@ -188,7 +247,14 @@ main {
     display: none !important;
   }
   main {
-    padding: 25px;
+    padding: 0px 25px;
+  }
+  #home-header {
+    margin: auto -25px;
+  }
+  #review-bounding {
+    display: flex !important;
+    flex-direction: column-reverse !important;
   }
 }
 @media (max-width: 576px) {
@@ -205,6 +271,9 @@ main {
   }
   #home-header section:not(#home-hero) div {
     max-width: none;
+  }
+  main {
+    padding: 0px 15px;
   }
 }
 

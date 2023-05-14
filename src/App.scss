@@ -35,6 +35,13 @@
     transition: background-color .2s;
 }
 
+@mixin h1{
+    font-size: 1.75em;
+}
+
+@mixin h2{
+    font-size: 1.25em;
+}
 
 
 
@@ -79,7 +86,8 @@ header {
     @include ghost-button(var(--primary-green));
 
     &:hover{
-        @include ghost-button-hover(var(--primary-green), white)
+        @include ghost-button-hover(var(--primary-green), white);
+        cursor: pointer;
     }
 }
 
@@ -88,6 +96,7 @@ header {
 
     &:hover{
         @include button-hover(var(--darker-yellow));
+        cursor: pointer;
     }
 }
 
@@ -118,7 +127,7 @@ main {
             max-width: 550px;
 
             h1{
-                font-size: 1.75em;
+                @include h1();
                 margin-top: 0px;
                 margin-bottom: 10px;
             }
@@ -148,6 +157,7 @@ main {
 
     &:hover{
         @include button-hover(var(--darker-green));
+        cursor: pointer;
     }
 }
 
@@ -166,7 +176,7 @@ main {
 
     .specials-card{
         border-radius: 15px;
-        box-shadow: 3px 3px 5px rgba(0,0,0, 0.25);
+        box-shadow: -3px 3px 5px rgba(0,0,0, 0.25);
 
         div:first-child {
             min-height: 200px;
@@ -191,6 +201,71 @@ main {
     }
 }
 
+
+/*REVIEWS*/
+
+#review-section{
+    background-color: var(--primary-green);
+    margin-top: 50px;
+    padding: 25px 50px 50px 50px;
+
+    h2{
+        @include h2();
+        color: white;
+        margin-bottom: 35px;
+    }
+}
+
+#review-bounding{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .customer-review{
+        display: flex;
+        padding: 25px;
+        border-bottom: 1px solid #eaeaea;
+
+        .customer-avatar{
+            margin-right: 15px;
+            max-height: 75px;
+            border-radius: 1000px;
+        }
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: -5px 5px 10px rgba(0,0,0, 0.25);
+            transition: box-shadow .3s;
+            border-bottom: 1px solid transparent !important;
+        }
+
+        &:last-child{
+            border-bottom: none !important;
+        }
+    }
+}
+
+#rev-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+
+    p:last-child{
+        max-width: 450px;
+    }
+}
+
+
+/*ABOUT*/
+
+#about-section{
+    margin: 50px 0px 50px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 
 
@@ -250,7 +325,16 @@ main {
     }
 
     main {
-        padding: 25px;
+        padding: 0px 25px;
+    }
+
+    #home-header{
+        margin: auto -25px;
+    }
+
+    #review-bounding{
+        display: flex !important;
+        flex-direction: column-reverse !important;
     }
 }
 
@@ -271,5 +355,9 @@ main {
                 max-width: none;
             }
         }
+    }
+
+    main {
+        padding: 0px 15px;
     }
 }
