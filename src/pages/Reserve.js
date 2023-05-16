@@ -1,11 +1,12 @@
 import '../App.css';
 import Layout from '../components/Layout';
+import ReserveMain from '../components/ReserveMain';
 
 const Reserve = () => {
   return (
     <>
       <Layout>
-        <h1>Reserve Page!!</h1>
+        <ReserveMain/>
       </Layout>
     </>
   );

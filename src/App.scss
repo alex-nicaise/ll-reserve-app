@@ -364,6 +364,23 @@ main {
     max-height: 75px;
 }
 
+/*-------------------- RESERVE PAGE ---------------------*/
+
+#reserve-hero{
+    min-height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#reserve-main{
+    margin-bottom: 50px;
+    
+    form{
+        display: grid;
+        max-width: 500px;
+    }
+}
 
 
 
