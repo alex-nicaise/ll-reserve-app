@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import SmallNav from "./SmallNav";
 import Logo from "../images/little-lemon-logo.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return(
@@ -19,7 +20,7 @@ const Header = () => {
             <meta name="copyright" content="Copyright 2023"></meta>
             <meta name="robots" content="index,follow" />
 
-            <img src={Logo} alt="Little Lemon Logo"/>
+            <Link to="/"><img src={Logo} alt="Little Lemon Logo"/></Link>
 
             <Nav />
             <SmallNav />

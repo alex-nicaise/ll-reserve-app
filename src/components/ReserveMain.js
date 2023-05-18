@@ -5,11 +5,7 @@ import { fetchAPI, submitAPI } from "../APIs/bookingAndTimes";
 import { useNavigate } from "react-router-dom";
 import { stringify } from "flatted";
 
-const ReserveMain = () => {
-
-    // Navigate
-
-    const navigate = useNavigate();
+const ReserveMain = (props) => {
 
     // UseEffect
 
@@ -34,7 +30,7 @@ const ReserveMain = () => {
 
     const submitForm = (data) => {
         localStorage.setItem("formData", stringify(data));
-        submitAPI(data) && navigate("/confirmed");
+        submitAPI(data) && props.navigate("/confirmed");
     }
 
     // Return
