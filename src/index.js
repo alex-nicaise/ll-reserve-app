@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Reserve from './pages/Reserve';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ConfirmedBooking from './components/ConfirmedBooking';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,8 @@ root.render(
     <Router>
         <Routes>
             <Route path="/" index element={<Home/>}/>
-            <Route path="reserve" element={<Reserve/>}/>
+            <Route path="/reserve" element={<Reserve/>}/>
+            <Route path="/confirmed" element={<ConfirmedBooking/>}/>
         </Routes>
     </Router>
   </React.StrictMode>

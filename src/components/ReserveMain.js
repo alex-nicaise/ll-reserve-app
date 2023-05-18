@@ -1,26 +1,43 @@
-import React, { useState, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import seatingImg from "../images/ll-restaurant-seating.jpg"
 import BookingForm from "./BookingForm";
+import { fetchAPI, submitAPI } from "../APIs/bookingAndTimes";
+import { useNavigate } from "react-router-dom";
+import { stringify } from "flatted";
 
 const ReserveMain = () => {
 
-    const [book, setBook] = useState({
-        date: "",
-        time: "",
-        guests: 2,
-        occasion: "None"
-    });
+    // Navigate
 
-    const initializeTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    const navigate = useNavigate();
+
+    // UseEffect
+
+    useEffect(()=>{localStorage.clear()});
+
+    // Reducer
+
+    const initializeTimes = () => {
+        return fetchAPI(new Date())
+    };
 
     const updateTimes = (availableTimes, action) =>{
-        if (action.type === "change_date") {
-            setBook({...book, date: action.date});
-            return ["17:00", "18:00", "104:00", "20:00", "21:00", "22:00"]
+        if (action.type === "change_date"){
+            availableTimes = fetchAPI(new Date(action.date));
+            return availableTimes;
         }
     }
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+
+    // Submit Form
+
+    const submitForm = (data) => {
+        localStorage.setItem("formData", stringify(data));
+        submitAPI(data) && navigate("/confirmed");
+    }
+
+    // Return
 
     return(
         <main id="reserve-main">
@@ -30,12 +47,7 @@ const ReserveMain = () => {
             ></article>
             <h1>Reserve a Table</h1>
 
-            <BookingForm times={availableTimes} dispatch={dispatch} initBooking={book} changeBooking={setBook} />
-
-            <h3>Current date: {book.date}</h3>
-            <h3>Current time: {book.time}</h3>
-            <h3>Current Guests: {book.guests}</h3>
-            <h3>Current occasion: {book.occasion}</h3>
+            <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
         </main>
     )
 }
