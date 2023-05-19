@@ -1,9 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 import seatingImg from "../images/ll-restaurant-seating.jpg"
-import BookingForm from "./BookingForm";
+// import BookingForm from "./BookingForm";
+import BookingFormV2 from "./BookingFormV2";
 import { fetchAPI, submitAPI } from "../APIs/bookingAndTimes";
-import { useNavigate } from "react-router-dom";
 import { stringify } from "flatted";
+
 
 const ReserveMain = (props) => {
 
@@ -43,7 +44,8 @@ const ReserveMain = (props) => {
             ></article>
             <h1>Reserve a Table</h1>
 
-            <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
+            {/* <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} /> */}
+            <BookingFormV2 availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
         </main>
     )
 }
