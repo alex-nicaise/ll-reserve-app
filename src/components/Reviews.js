@@ -19,6 +19,7 @@ const Reviews = () => {
                 <div
                 className="customer-review"
                 key={testimonials[0].id}
+                aria-label = "On Click"
                 onClick={() => {
                     handleClick(testimonials[0].rating, testimonials[0].title, testimonials[0].description)
                 }}>
@@ -32,6 +33,7 @@ const Reviews = () => {
                 <div
                 className="customer-review"
                 key={testimonials[1].id}
+                aria-label = "On Click"
                 onClick={() => {
                     handleClick(testimonials[1].rating, testimonials[1].title, testimonials[1].description)
                 }}>
@@ -45,6 +47,7 @@ const Reviews = () => {
                 <div
                 className="customer-review"
                 key={testimonials[2].id}
+                aria-label = "On Click"
                 onClick={() => {
                     handleClick(testimonials[2].rating, testimonials[2].title, testimonials[2].description)
                 }}>

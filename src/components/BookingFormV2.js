@@ -46,12 +46,12 @@ const BookingFormV2 = ({availableTimes = [], guests = 2, ...props}) =>{
             return (
                <Form data-testid="res-form">
                     <label htmlFor="fullName">Full Name</label>
-                    <Field name="fullName" id="fullName" className={errors.fullName ? "res-field-error" : ""} />
+                    <Field name="fullName" id="fullName" className={errors.fullName ? "res-field-error" : ""} aria-label="On Change"/>
                     {errors.fullName && touched.fullName ? (
                         <div data-testid="res-error-div" className="res-error-div">{errors.fullName}</div>
                     ) : null}
                     <label htmlFor="res-date">Date</label>
-                    <Field type="date" name="date" id="res-date" className={errors.date ? "res-field-error" : ""} onChange={
+                    <Field type="date" name="date" id="res-date" className={errors.date ? "res-field-error" : ""} aria-label="On Change" onChange={
                         (e) => {
                             handleChange(e);
                             props.dispatch({type: "change_date", date: e.target.value});
@@ -61,25 +61,25 @@ const BookingFormV2 = ({availableTimes = [], guests = 2, ...props}) =>{
                         <div data-testid="res-error-div" className="res-error-div">{errors.date}</div>
                     ) : null}
                     <label htmlFor="res-time">Time</label>
-                    <Field name="time" as="select" id="res-time" className={errors.time ? "res-field-error" : ""}>
+                    <Field name="time" as="select" id="res-time" className={errors.time ? "res-field-error" : ""} aria-label="On Change">
                         {availableTimes.map(time=><option key={time}>{time}</option>)}
                     </Field>
                     {errors.time && touched.time ? (
                         <div data-testid="res-error-div" className="res-error-div">{errors.time}</div>
                     ) : null}
                     <label htmlFor="res-guests">Guests</label>
-                    <Field type="number" name="guests" min="1" max="25" id="res-guests" className={errors.guests ? "res-field-error" : ""}/>
+                    <Field type="number" name="guests" min="1" max="25" id="res-guests" className={errors.guests ? "res-field-error" : ""} aria-label="On Change"/>
                     {errors.guests && touched.guests ? (
                         <div data-testid="res-error-div" className="res-error-div">{errors.guests}</div>
                     ) : null}
                     <label htmlFor="res-occasion">Occasion</label>
-                    <Field name="occasion" as="select" id="res-occasion">
+                    <Field name="occasion" as="select" id="res-occasion" aria-label="On Change">
                         <option>None</option>
                         <option>Birthday</option>
                         <option>Anniversary</option>
                         <option>Other</option>
                     </Field>
-                    <button type="submit" role="button">Submit Reservation</button>
+                    <button type="submit" role="button" aria-label="On Submit">Submit Reservation</button>
                 </Form>
             )
         }}
