@@ -1,4 +1,4 @@
-import { act, fireEvent, getByLabelText, render, screen, within } from "@testing-library/react";
+import { act, fireEvent, getByLabelText, render, screen, waitFor, within } from "@testing-library/react";
 import ReserveMain from "../components/ReserveMain";
 import BookingFormV2 from "../components/BookingFormV2";
 
@@ -30,18 +30,31 @@ test('Make sure booking form writes to LocalStorage on Submit', () => {
     act(()=>{
         fireEvent.submit(screen.getByTestId('res-form'));
     });
-    expect(localStorage).toHaveLength(1);
+
+    waitFor(()=>{
+        expect(localStorage).toHaveLength(1);
+    });
 })
 
 test('Test that validation works correctly', () => {
     render(<ReserveMain/>);
 
-    fireEvent.focus(screen.getByLabelText('Full Name'));
-    fireEvent.keyDown(screen.getByLabelText('Full Name'), {key: 'J'});
-    fireEvent.blur(screen.getByLabelText('Full Name'));
+    fireEvent.click(screen.getByRole('button'), {pendingProps: {type: 'submit'}});
 
-    const resErrors = screen.getAllByTestId('res-error-div');
+    waitFor(()=>{
+       expect(screen.getAllByTestId('res-error-div')).toBeInTheDocument();
+    });
+})
 
-    expect(resErrors).toBeInTheDocument();
+test('Make sure no errors', () => {
+    render(<ReserveMain/>);
 
+    fireEvent.change(screen.getByLabelText('Full Name'), {target: {value: "Jenny"}});
+    fireEvent.change(screen.getByLabelText('Date'), {target: {value: "2023-06-07"}});
+    fireEvent.change(screen.getByLabelText('Time'), {target: {value: "17:00"}});
+    fireEvent.change(screen.getByLabelText('Guests'), {target: {value: 2}});
+
+    waitFor(()=>{
+       expect(screen.getAllByTestId('res-error-div')).not.toBeInTheDocument();
+    });
 })
