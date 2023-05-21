@@ -36,7 +36,7 @@ const BookingFormV2 = ({availableTimes = [], guests = 2, ...props}) =>{
             fullName: '',
             date: '',
             time: '',
-            guests: 2,
+            guests: '',
             occasion: "None"
         }}
         validationSchema={reserveSchema}
@@ -44,33 +44,33 @@ const BookingFormV2 = ({availableTimes = [], guests = 2, ...props}) =>{
 
         {({errors, touched, handleChange}) => {
             return (
-               <Form>
+               <Form data-testid="res-form">
                     <label htmlFor="fullName">Full Name</label>
-                    <Field name="fullName" id="fullName" />
+                    <Field name="fullName" id="fullName" className={errors.fullName ? "res-field-error" : ""} />
                     {errors.fullName && touched.fullName ? (
-                        <div style={{color: "red", fontSize: "0.75em"}}>{errors.fullName}</div>
+                        <div data-testid="res-error-div" className="res-error-div">{errors.fullName}</div>
                     ) : null}
                     <label htmlFor="res-date">Date</label>
-                    <Field type="date" name="date" id="res-date" onChange={
+                    <Field type="date" name="date" id="res-date" className={errors.date ? "res-field-error" : ""} onChange={
                         (e) => {
                             handleChange(e);
                             props.dispatch({type: "change_date", date: e.target.value});
                         }}
                     />
                     {errors.date ? (
-                        <div style={{color: "red", fontSize: "0.75em"}}>{errors.date}</div>
+                        <div data-testid="res-error-div" className="res-error-div">{errors.date}</div>
                     ) : null}
                     <label htmlFor="res-time">Time</label>
-                    <Field name="time" as="select" id="res-time">
+                    <Field name="time" as="select" id="res-time" className={errors.time ? "res-field-error" : ""}>
                         {availableTimes.map(time=><option key={time}>{time}</option>)}
                     </Field>
                     {errors.time && touched.time ? (
-                        <div style={{color: "red", fontSize: "0.75em"}}>{errors.time}</div>
+                        <div data-testid="res-error-div" className="res-error-div">{errors.time}</div>
                     ) : null}
                     <label htmlFor="res-guests">Guests</label>
-                    <Field type="number" name="guests" min="1" max="25" id="res-guests" />
+                    <Field type="number" name="guests" min="1" max="25" id="res-guests" className={errors.guests ? "res-field-error" : ""}/>
                     {errors.guests && touched.guests ? (
-                        <div style={{color: "red", fontSize: "0.75em"}}>{errors.guests}</div>
+                        <div data-testid="res-error-div" className="res-error-div">{errors.guests}</div>
                     ) : null}
                     <label htmlFor="res-occasion">Occasion</label>
                     <Field name="occasion" as="select" id="res-occasion">
@@ -79,7 +79,7 @@ const BookingFormV2 = ({availableTimes = [], guests = 2, ...props}) =>{
                         <option>Anniversary</option>
                         <option>Other</option>
                     </Field>
-                    <button type="submit">Submit Reservation</button>
+                    <button type="submit" role="button">Submit Reservation</button>
                 </Form>
             )
         }}

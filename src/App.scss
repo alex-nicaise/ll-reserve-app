@@ -375,10 +375,19 @@ main {
 
 #reserve-main{
     margin-bottom: 50px;
-    
+
     form{
         display: grid;
         max-width: 500px;
+    }
+
+    .res-error-div{
+        color: red;
+        font-size: 0.75em;
+    }
+
+    .res-field-error{
+        border: 1px solid red;
     }
 }
 

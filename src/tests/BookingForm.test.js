@@ -1,9 +1,10 @@
-import { fireEvent, getByLabelText, render, screen, within } from "@testing-library/react";
-import BookingForm from "../components/BookingForm";
+import { act, fireEvent, getByLabelText, render, screen, within } from "@testing-library/react";
 import ReserveMain from "../components/ReserveMain";
+import BookingFormV2 from "../components/BookingFormV2";
+
 
 test('Renders Date', () => {
-    render(<BookingForm/>);
+    render(<BookingFormV2/>);
     const dateElement = screen.getByLabelText("Date");
     expect(dateElement).toBeInTheDocument();
 })
@@ -17,4 +18,30 @@ test('Validate that updateTimes returns a different value every time', () => {
     const secondTimes = within(screen.getByLabelText('Time')).getAllByRole('option');
 
     expect(secondTimes).not.toEqual(firstTimes);
+})
+
+test('Make sure booking form writes to LocalStorage on Submit', () => {
+    render(<ReserveMain/>);
+    fireEvent.change(screen.getByLabelText('Full Name'), {target: {value: "Jenny"}});
+    fireEvent.change(screen.getByLabelText('Date'), {target: {value: "2023-06-07"}});
+    fireEvent.change(screen.getByLabelText('Time'), {target: {value: "17:00"}});
+    fireEvent.change(screen.getByLabelText('Guests'), {target: {value: 2}});
+
+    act(()=>{
+        fireEvent.submit(screen.getByTestId('res-form'));
+    });
+    expect(localStorage).toHaveLength(1);
+})
+
+test('Test that validation works correctly', () => {
+    render(<ReserveMain/>);
+
+    fireEvent.focus(screen.getByLabelText('Full Name'));
+    fireEvent.keyDown(screen.getByLabelText('Full Name'), {key: 'J'});
+    fireEvent.blur(screen.getByLabelText('Full Name'));
+
+    const resErrors = screen.getAllByTestId('res-error-div');
+
+    expect(resErrors).toBeInTheDocument();
+
 })

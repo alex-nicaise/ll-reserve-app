@@ -298,6 +298,13 @@ main {
   display: grid;
   max-width: 500px;
 }
+#reserve-main .res-error-div {
+  color: red;
+  font-size: 0.75em;
+}
+#reserve-main .res-field-error {
+  border: 1px solid red;
+}
 
 /*-------------------- MEDIA QUERIES ---------------------*/
 @media (max-width: 992px) {

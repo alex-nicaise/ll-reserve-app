@@ -1,11 +1,12 @@
 import React from "react";
-import Logo from "../images/little-lemon-logo.svg";
 import LogoWhite from "../images/ll-logo-white.png";
 import facebookIcon from "../images/icons/facebook-icon.png";
 import twitterIcon from "../images/icons/twitter-icon.png";
 import instaIcon from "../images/icons/instagram-icon.png";
 import openTableIcon from "../images/icons/open-table-icon.png";
 import tikTokIcon from "../images/icons/tiktok-icon.png";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
     return(
@@ -35,10 +36,10 @@ const Footer = () => {
                     <div id="footer-menu">
                         <h3>Links</h3>
                         <menu>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><HashLink smooth to="/#about-section">About</HashLink></li>
                             <li><a href="#">Menu</a></li>
-                            <li><a href="#">Reserve</a></li>
+                            <li><Link to="/reserve">Reserve</Link></li>
                             <li><a href="#">Order Online</a></li>
                         </menu>
                     </div>
