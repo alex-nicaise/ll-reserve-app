@@ -46,7 +46,7 @@ test('Test that validation works correctly', () => {
     });
 })
 
-test('Make sure no errors', () => {
+test('Make sure no errors in form.', () => {
     render(<ReserveMain/>);
 
     fireEvent.change(screen.getByLabelText('Full Name'), {target: {value: "Jenny"}});
