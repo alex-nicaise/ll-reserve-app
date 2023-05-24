@@ -1,5 +1,7 @@
 import React from "react";
 import Layout from "./Layout";
+import { BsCheck2Circle } from "react-icons/bs";
+
 
 const ConfirmedBooking = () => {
 
@@ -27,7 +29,8 @@ const ConfirmedBooking = () => {
     return(
         <Layout>
             <main id="confirmed-booking">
-                <h1>Thank You {formStuff[1]}!</h1>
+                <BsCheck2Circle className="confirmed-check"/>
+                <h1>Thank You, {formStuff[1]}!</h1>
                 <p>Your table has been booked for {formStuff[3]} on {months[month]} {day}, {year}.</p>
             </main>
         </Layout>

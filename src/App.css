@@ -5,6 +5,10 @@
   --darker-yellow: #e7c414;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /*-------------------- HEADER ---------------------*/
 header {
   padding: 0px 50px;
@@ -73,7 +77,7 @@ header #mobile-nav {
   cursor: pointer;
 }
 
-.button-green {
+.green-button {
   font-weight: bold;
   background-color: var(--primary-green);
   color: white !important;
@@ -82,7 +86,7 @@ header #mobile-nav {
   padding: 5px 15px;
   text-decoration: none;
 }
-.button-green:hover {
+.green-button:hover {
   background-color: var(--darker-green) !important;
   border: 2px solid var(--darker-green) !important;
   transition: background-color 0.2s;
@@ -125,24 +129,6 @@ main {
 }
 
 /*SPECIALS*/
-.green-button {
-  font-weight: bold;
-  background-color: var(--primary-green);
-  color: white !important;
-  border: 2px solid var(--primary-green);
-  border-radius: 1000px;
-  padding: 5px 15px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-}
-.green-button:hover {
-  background-color: var(--darker-green) !important;
-  border: 2px solid var(--darker-green) !important;
-  transition: background-color 0.2s;
-  cursor: pointer;
-}
-
 #specials-section section:first-child {
   margin: 25px 0px;
   display: flex;
@@ -320,10 +306,35 @@ main {
 }
 
 #reserve-main {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+}
+#reserve-main h1 {
+  margin-top: 50px;
 }
 #reserve-main form {
+  border: 1px solid #e0e0e0;
+  max-width: 100%;
   display: grid;
+  padding: 50px;
+  border-radius: 10px;
+}
+#reserve-main form .res-form-wrapper {
+  display: grid;
+  margin-bottom: 10px;
+  max-width: 500px;
+}
+#reserve-main form input, #reserve-main form select {
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+#reserve-main form label {
+  font-size: 0.75em;
+  color: #666;
+}
+#reserve-main form .green-button {
+  margin-top: 25px;
+  font-size: 1em;
   max-width: 500px;
 }
 #reserve-main .res-error-div {
@@ -332,6 +343,19 @@ main {
 }
 #reserve-main .res-field-error {
   border: 1px solid red;
+}
+
+/*-------------------- CONFIRMED PAGE ---------------------*/
+#confirmed-booking {
+  background-color: #e0e0e0;
+  padding: 100px 25px;
+  text-align: center;
+}
+#confirmed-booking .confirmed-check {
+  font-size: 3.5em;
+}
+#confirmed-booking p {
+  margin-bottom: 0px;
 }
 
 /*-------------------- MEDIA QUERIES ---------------------*/

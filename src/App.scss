@@ -50,6 +50,11 @@
 }
 
 
+body{
+    overflow-x: hidden;
+}
+
+
 
 
 /*-------------------- HEADER ---------------------*/
@@ -118,7 +123,7 @@ header {
     }
 }
 
-.button-green{
+.green-button{
     @include button(var(--primary-green), white);
 
     &:hover{
@@ -173,18 +178,6 @@ main {
 
 
 /*SPECIALS*/
-
-.green-button{
-    @include button(var(--primary-green), white);
-
-    display: flex;
-    flex-direction: column;
-
-    &:hover{
-        @include button-hover(var(--darker-green));
-        cursor: pointer;
-    }
-}
 
 #specials-section{
     section:first-child{
@@ -340,6 +333,7 @@ main {
 
 
 
+
 /*-------------------- FOOTER ---------------------*/
 
 #footer{
@@ -388,6 +382,9 @@ main {
     max-height: 75px;
 }
 
+
+
+
 /*-------------------- RESERVE PAGE ---------------------*/
 
 #reserve-hero{
@@ -398,11 +395,41 @@ main {
 }
 
 #reserve-main{
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+
+    h1 {
+        margin-top: 50px;
+    }
 
     form{
+        border: 1px solid #e0e0e0;
+        max-width: 100%;
         display: grid;
-        max-width: 500px;
+        padding: 50px;
+        border-radius: 10px;
+
+        .res-form-wrapper{
+            display: grid;
+            margin-bottom: 10px;
+            max-width: 500px;
+        }
+
+        input, select{
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+
+        label{
+            font-size: 0.75em;
+            color: #666;
+        }
+
+        .green-button{
+            margin-top: 25px;
+            font-size: 1em;
+            max-width: 500px;
+        }
     }
 
     .res-error-div{
@@ -416,6 +443,23 @@ main {
 }
 
 
+
+
+/*-------------------- CONFIRMED PAGE ---------------------*/
+
+#confirmed-booking{
+    background-color: #e0e0e0;
+    padding: 100px 25px;
+    text-align: center;
+
+    .confirmed-check{
+        font-size: 3.5em;
+    }
+
+    p{
+        margin-bottom: 0px;
+    }
+}
 
 /*-------------------- MEDIA QUERIES ---------------------*/
 
