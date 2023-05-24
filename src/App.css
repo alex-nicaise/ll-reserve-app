@@ -15,6 +15,14 @@ header menu {
   list-style: none;
   display: flex;
 }
+header .menu-close {
+  max-height: 0px;
+  transition: max-height ease-in-out 0.3s;
+}
+header .menu-open {
+  max-height: 500px;
+  transition: max-height ease-in-out 0.3s;
+}
 header img {
   min-height: 65px;
   margin: 25px 0px;
@@ -32,6 +40,7 @@ header #widescreen-nav li:not(li:last-child) {
 }
 header #mobile-nav {
   display: none;
+  overflow: hidden;
 }
 
 .ghost-button-primary {
@@ -60,6 +69,22 @@ header #mobile-nav {
 .button-yellow:hover {
   background-color: var(--darker-yellow) !important;
   border: 2px solid var(--darker-yellow) !important;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.button-green {
+  font-weight: bold;
+  background-color: var(--primary-green);
+  color: white !important;
+  border: 2px solid var(--primary-green);
+  border-radius: 1000px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.button-green:hover {
+  background-color: var(--darker-green) !important;
+  border: 2px solid var(--darker-green) !important;
   transition: background-color 0.2s;
   cursor: pointer;
 }
@@ -170,7 +195,7 @@ main {
 #review-bounding .customer-review {
   display: flex;
   padding: 25px;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #dadada;
 }
 #review-bounding .customer-review .customer-avatar {
   margin-right: 15px;
@@ -194,7 +219,7 @@ main {
   align-items: center;
   text-align: center;
   padding: 25px;
-  border-left: 1px solid #eaeaea;
+  border-left: 1px solid #dadada;
 }
 #rev-panel p:last-child {
   max-width: 450px;
@@ -213,8 +238,11 @@ main {
 }
 #about-section section:not(#owner-imgs) span {
   margin: auto;
-  max-width: 450px;
-  padding-right: 25px;
+  max-width: 500px;
+  padding: 0px 15px;
+}
+#about-section section:not(#owner-imgs) span p {
+  margin-bottom: 0px;
 }
 #about-section #owner-imgs {
   display: flex;
@@ -311,6 +339,28 @@ main {
   #home-header {
     grid-template-columns: 1fr 1fr;
   }
+  #about-section {
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+  }
+  #about-section #owner-imgs span {
+    background: url("../public/costas-together.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    min-height: 300px;
+    min-width: 100%;
+    margin-right: 0px;
+  }
+  #about-section #owner-imgs div {
+    display: none;
+  }
+}
+@media (min-width: 800px) {
+  .hamburger-react {
+    display: none;
+  }
 }
 @media (max-width: 799px) {
   header {
@@ -320,9 +370,15 @@ main {
   header img {
     margin: 25px 0px 15px 0px;
   }
+  header #header-span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
   header #mobile-nav {
-    display: block !important;
-    min-width: 100vw;
+    display: block;
+    min-width: calc(100% + 100px);
     text-align: center;
     background-color: #bababa;
   }
@@ -353,7 +409,34 @@ main {
   }
   #rev-panel {
     border-left: none;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #dadada;
+  }
+  .customer-review {
+    justify-content: center;
+  }
+  #review-section {
+    margin: 50px -25px auto -15px;
+  }
+  #owner-imgs {
+    margin: auto -25px auto -25px;
+  }
+}
+@media (max-width: 767px) {
+  #specials-section section:last-child {
+    grid-template-columns: 1fr;
+  }
+  #specials-section section:last-child .specials-card:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 25px;
+  }
+  #footer span section:nth-child(1) {
+    grid-column: 1/2;
+  }
+  #footer span section:nth-child(2) {
+    grid-column: 2/4;
+  }
+  #footer span section:nth-child(3) {
+    grid-column: 1/4;
   }
 }
 @media (max-width: 576px) {
@@ -373,6 +456,24 @@ main {
   }
   main {
     padding: 0px 15px;
+  }
+  #review-section {
+    padding: 25px 25px 50px 25px;
+  }
+  #owner-imgs {
+    margin: auto -15px auto -15px;
+  }
+  #footer span section {
+    padding: 15px;
+  }
+  #footer span section:nth-child(1) {
+    grid-column: 1/4;
+  }
+  #footer span section:nth-child(2) {
+    grid-column: 1/4;
+  }
+  #footer span section:nth-child(3) {
+    grid-column: 1/4;
   }
 }
 

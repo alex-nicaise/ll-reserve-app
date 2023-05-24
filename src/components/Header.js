@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./Nav";
 import SmallNav from "./SmallNav";
 import Logo from "../images/little-lemon-logo.svg";
 import { Link } from "react-router-dom";
+import { Squash as Hamburger } from 'hamburger-react'
 
 const Header = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return(
         <header>
             {/* META TAGS */}
@@ -20,10 +24,18 @@ const Header = () => {
             <meta name="copyright" content="Copyright 2023"></meta>
             <meta name="robots" content="index,follow" />
 
-            <Link to="/"><img src={Logo} alt="Little Lemon Logo"/></Link>
+            <span id="header-span">
+                <Link to="/"><img src={Logo} alt="Little Lemon Logo"/></Link>
+                <Hamburger
+                color="#495E57"
+                aria-description="Mobile Navigation Toggle Button"
+                aria-label="onClick"
+                onToggle={(toggled)=>{toggled ? setMenuOpen(true) : setMenuOpen(false)}} />
+            </span>
 
             <Nav />
-            <SmallNav />
+            <SmallNav open={menuOpen}/>
+
         </header>
     )
 }
