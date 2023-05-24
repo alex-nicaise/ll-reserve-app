@@ -1,4 +1,5 @@
 import React from "react";
+import { FiShoppingCart } from "react-icons/fi"
 
 const SpecialsCard = (props) =>{
     return(
@@ -8,7 +9,7 @@ const SpecialsCard = (props) =>{
                 <p><strong>{props.header}</strong></p>
                 <p><del>{props.originalPrice}</del> <span className="special-price">{props.price}</span></p>
                 <p>{props.body}</p>
-                <a href="#" className="card-footer-link" onClick={e=>e.preventDefault()}>Order Online</a>
+                <a href="#" className="card-footer-link" onClick={e=>e.preventDefault()}><button><FiShoppingCart/>&nbsp;&nbsp;Order Online</button></a>
             </div>
         </div>
     )

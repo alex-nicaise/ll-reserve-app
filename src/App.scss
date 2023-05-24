@@ -205,6 +205,15 @@ main {
 
         .special-text{
             margin: 25px;
+
+            button{
+                @include ghost-button(var(--primary-green));
+                background-color: transparent;
+
+                &:hover{
+                    @include ghost-button-hover(var(--primary-green), white);
+                }
+            }
         }
 
         .special-price{
