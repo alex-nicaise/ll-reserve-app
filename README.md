@@ -1,7 +1,5 @@
-# ll-reserve-app
+This was the final project for my Meta Front End Developer Certificate.
 
-To view: 
-- ```git clone https://github.com/alex-nicaise/ll-reserve-app.git```
-- ```cd``` into folder
-- ```npm install```
-- ```npm run start```
+The main functionality of this is provided through the "Reserve" feature, please follow that link in the menu to see it in action.
+
+The application utilizes React, React Router, Formik, and Yup.
